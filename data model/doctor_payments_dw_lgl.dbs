@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="doctors_payments_dw_lgl" id="LogicalDesign-10cc" database="LogicalDesign" >
+	<schema name="INSTANCE" catalogname="doctors_payments_dw_lgl" >
+		<table name="dim_company" prior="Entity" >
+			<column name="company_id" type="INT" jt="4" mandatory="y" />
+			<column name="submitting_company_name" type="VARCHAR" length="255" jt="12" />
+			<column name="company_making_pmt_id" type="INT" jt="4" />
+			<column name="company_making_pmt_name" type="VARCHAR" length="255" jt="12" />
+			<column name="company_making_pmt_state" type="VARCHAR" length="255" jt="12" />
+			<column name="company_making_pmt_country" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_company" unique="PRIMARY_KEY" >
+				<column name="company_id" />
+			</index>
+		</table>
+		<table name="dim_date" prior="Entity" >
+			<column name="date_id" type="INT" jt="4" mandatory="y" />
+			<column name="original_date" type="DATE" jt="91" />
+			<column name="iso_date" type="DATE" jt="91" />
+			<column name="year" type="INT" jt="4" />
+			<column name="quarter" type="INT" jt="4" />
+			<column name="month" type="INT" jt="4" />
+			<column name="week" type="INT" jt="4" />
+			<column name="day" type="INT" jt="4" />
+			<column name="month_name" type="VARCHAR" length="100" jt="12" />
+			<column name="day_name" type="VARCHAR" length="100" jt="12" />
+			<column name="week_of_the_year" type="INT" jt="4" />
+			<column name="day_of_the_year" type="INT" jt="4" />
+			<index name="pk_dim_date" unique="PRIMARY_KEY" >
+				<column name="date_id" />
+			</index>
+		</table>
+		<table name="dim_payment_form" prior="dim_form" >
+			<column name="payment_form_id" prior="form_id" type="INT" jt="4" mandatory="y" />
+			<column name="payment_form" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_payment_form" unique="PRIMARY_KEY" >
+				<column name="payment_form_id" />
+			</index>
+		</table>
+		<table name="dim_payment_nature" prior="dim_" >
+			<column name="payment_nature_id" type="INT" jt="4" mandatory="y" />
+			<column name="payment_nature_form" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_payment_nature" unique="PRIMARY_KEY" >
+				<column name="payment_nature_id" />
+			</index>
+		</table>
+		<table name="dim_payment_type" prior="Entity" >
+			<column name="payment_type_id" type="INT" jt="4" mandatory="y" />
+			<column name="payment_type" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_dim_payment_type" unique="PRIMARY_KEY" >
+				<column name="payment_type_id" />
+			</index>
+		</table>
+		<table name="dim_primary_type" prior="dim_" >
+			<column name="primary_type_id" type="INT" jt="4" mandatory="y" />
+			<column name="primary_type" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_primary_type" unique="PRIMARY_KEY" >
+				<column name="primary_type_id" />
+			</index>
+		</table>
+		<table name="dim_recipient" prior="dim_recepient" >
+			<column name="recipient_id" type="INT" jt="4" mandatory="y" />
+			<column name="recipient_npi" type="INT" jt="4" />
+			<column name="recipient_address_line_1" type="VARCHAR" length="100" jt="12" />
+			<column name="recipient_address_line_2" type="VARCHAR" length="100" jt="12" />
+			<column name="recipient_city" type="VARCHAR" length="100" jt="12" />
+			<column name="recipient_state" type="VARCHAR" length="100" jt="12" />
+			<column name="recipient_zip_code" type="INT" jt="4" />
+			<column name="recipient_country" type="VARCHAR" length="100" jt="12" />
+			<column name="recipient_province" type="VARCHAR" length="100" jt="12" />
+			<column name="recipient_postal_code" type="INT" jt="4" />
+			<index name="pk_dim_recipient" unique="PRIMARY_KEY" >
+				<column name="recipient_id" />
+			</index>
+		</table>
+		<table name="dim_specialty" prior="Entity" >
+			<column name="specialty_id" type="INT" jt="4" mandatory="y" />
+			<column name="specialty" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_specialty" unique="PRIMARY_KEY" >
+				<column name="specialty_id" />
+			</index>
+		</table>
+		<table name="facts_payments" prior="payment_facts" >
+			<column name="fact_id" type="INT" jt="4" mandatory="y" />
+			<column name="pmt_amount" type="DECIMAL" length="2" jt="3" />
+			<column name="number_of_payments" type="INT" jt="4" />
+			<column name="population" type="INT" jt="4" />
+			<column name="payment_type_id" type="INT" jt="4" />
+			<column name="payment_form_id" type="INT" jt="4" />
+			<column name="payment_nature_id" type="INT" jt="4" />
+			<column name="date_id" type="INT" jt="4" />
+			<column name="company_id" type="INT" jt="4" />
+			<column name="recipient_id" type="INT" jt="4" />
+			<column name="specialty1_id" prior="specialty_id" type="INT" jt="4" />
+			<column name="specialty2_id" type="INT" jt="4" />
+			<column name="specialty3_id" type="INT" jt="4" />
+			<column name="specialty4_id" type="INT" jt="4" />
+			<column name="specialty5_id" type="INT" jt="4" />
+			<column name="primary_type1_id" prior="primary_type_id" type="INT" jt="4" />
+			<column name="primary_type2_id" type="INT" jt="4" />
+			<column name="primary_type3_id" type="INT" jt="4" />
+			<column name="primary_type4_id" type="INT" jt="4" />
+			<column name="primary_type5_id" type="INT" jt="4" />
+			<column name="principal_investigator1_id" type="INT" jt="4" />
+			<column name="principal_investigator2_id" type="INT" jt="4" />
+			<column name="principal_investigator3_id" type="INT" jt="4" />
+			<column name="principal_investigator4_id" type="INT" jt="4" />
+			<column name="principal_investigator5_id" type="INT" jt="4" />
+			<index name="pk_payment_facts" unique="PRIMARY_KEY" >
+				<column name="fact_id" />
+			</index>
+			<fk name="fk_facts_payments_dim_payment_type" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_payment_type" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="payment_type_id" pk="payment_type_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_payment_form" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_payment_form" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="payment_form_id" pk="payment_form_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_payment_nature" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_payment_nature" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="payment_nature_id" pk="payment_nature_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_date" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_date" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_company" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_company" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="company_id" pk="company_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_recipient" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_recipient" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="recipient_id" pk="recipient_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_specialty" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_specialty" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="specialty1_id" pk="specialty_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_specialty_0" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_specialty" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="specialty2_id" pk="specialty_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_specialty_1" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_specialty" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="specialty3_id" pk="specialty_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_specialty_2" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_specialty" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="specialty4_id" pk="specialty_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_specialty_3" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_specialty" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="specialty5_id" pk="specialty_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_primary_type" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_primary_type" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="primary_type1_id" pk="primary_type_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_primary_type_0" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_primary_type" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="primary_type2_id" pk="primary_type_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_primary_type_1" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_primary_type" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="primary_type3_id" pk="primary_type_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_primary_type_2" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_primary_type" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="primary_type4_id" pk="primary_type_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_primary_type_3" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_primary_type" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="primary_type5_id" pk="primary_type_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_recipient_0" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_recipient" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="principal_investigator1_id" pk="recipient_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_recipient_1" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_recipient" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="principal_investigator2_id" pk="recipient_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_recipient_2" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_recipient" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="principal_investigator3_id" pk="recipient_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_recipient_3" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_recipient" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="principal_investigator4_id" pk="recipient_id" />
+			</fk>
+			<fk name="fk_facts_payments_dim_recipient_4" virtual="y" to_schema="doctors_payments_dw_lgl.INSTANCE" to_table="dim_recipient" type="NonIdentifying" mandatory="n" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="principal_investigator5_id" pk="recipient_id" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-18c8" show_relation="columns" >
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="dim_company" color="C1D8EE" x="442" y="663" />
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="dim_date" color="C1D8EE" x="102" y="476" />
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="dim_payment_form" color="C1D8EE" x="85" y="255" />
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="dim_payment_nature" color="C1D8EE" x="51" y="374" />
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="dim_payment_type" color="C1D8EE" x="85" y="136" />
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="dim_primary_type" color="C1D8EE" x="799" y="459" />
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="dim_recipient" color="C1D8EE" x="714" y="51" />
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="dim_specialty" color="C1D8EE" x="799" y="323" />
+		<entity schema="doctors_payments_dw_lgl.INSTANCE" name="facts_payments" color="C1D8EE" x="374" y="136" />
+	</layout>
+</project>

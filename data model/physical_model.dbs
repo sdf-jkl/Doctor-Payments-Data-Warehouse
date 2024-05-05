@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="doctors_payments_dw_sonwflake" id="Snowflake-2633" database="Snowflake" >
+	<schema name="MEDICAL" catalogname="doctors_payments_dw_snowflake" >
+		<table name="DIM_COMPANY" prior="dim_company" >
+			<column name="COMPANY_ID" prior="company_id" type="INT" jt="4" mandatory="y" />
+			<column name="SUBMITTING_COMPANY_NAME" prior="submitting_company_name" type="VARCHAR" length="255" jt="12" />
+			<column name="COMPANY_MAKING_PMT_ID" prior="company_making_pmt_id" type="INT" jt="4" />
+			<column name="COMPANY_MAKING_PMT_NAME" prior="company_making_pmt_name" type="VARCHAR" length="255" jt="12" />
+			<column name="COMPANY_MAKING_PMT_STATE" prior="company_making_pmt_state" type="VARCHAR" length="255" jt="12" />
+			<column name="COMPANY_MAKING_PMT_COUNTRY" prior="company_making_pmt_country" type="VARCHAR" length="255" jt="12" />
+			<index name="PK_DIM_COMPANY" unique="PRIMARY_KEY" >
+				<column name="COMPANY_ID" />
+			</index>
+		</table>
+		<table name="DIM_DATE" prior="dim_date" >
+			<column name="DATE_ID" prior="date_id" type="INT" jt="4" mandatory="y" />
+			<column name="ORIGINAL_DATE" prior="original_date" type="DATE" jt="91" />
+			<column name="ISO_DATE" prior="iso_date" type="DATE" jt="91" />
+			<column name="YEAR" prior="year" type="INT" jt="4" />
+			<column name="QUARTER" prior="quarter" type="INT" jt="4" />
+			<column name="MONTH" prior="month" type="INT" jt="4" />
+			<column name="WEEK" prior="week" type="INT" jt="4" />
+			<column name="DAY" prior="day" type="INT" jt="4" />
+			<column name="MONTH_NAME" prior="month_name" type="VARCHAR" length="100" jt="12" />
+			<column name="DAY_NAME" prior="day_name" type="VARCHAR" length="100" jt="12" />
+			<column name="WEEK_OF_THE_YEAR" prior="week_of_the_year" type="INT" jt="4" />
+			<column name="DAY_OF_THE_YEAR" prior="day_of_the_year" type="INT" jt="4" />
+			<index name="PK_DIM_DATE" unique="PRIMARY_KEY" >
+				<column name="DATE_ID" />
+			</index>
+		</table>
+		<table name="DIM_PAYMENT_FORM" prior="dim_payment_form" >
+			<column name="PAYMENT_FORM_ID" prior="payment_form_id" type="INT" jt="4" mandatory="y" />
+			<column name="PAYMENT_FORM" prior="payment_form" type="VARCHAR" length="255" jt="12" />
+			<index name="PK_DIM_PAYMENT_FORM" unique="PRIMARY_KEY" >
+				<column name="PAYMENT_FORM_ID" />
+			</index>
+		</table>
+		<table name="DIM_PAYMENT_NATURE" prior="dim_payment_nature" >
+			<column name="PAYMENT_NATURE_ID" prior="payment_nature_id" type="INT" jt="4" mandatory="y" />
+			<column name="PAYMENT_NATURE_FORM" prior="payment_nature_form" type="VARCHAR" length="255" jt="12" />
+			<index name="PK_DIM_PAYMENT_NATURE" unique="PRIMARY_KEY" >
+				<column name="PAYMENT_NATURE_ID" />
+			</index>
+		</table>
+		<table name="DIM_PAYMENT_TYPE" prior="dim_payment_type" >
+			<column name="PAYMENT_TYPE_ID" prior="payment_type_id" type="INT" jt="4" mandatory="y" />
+			<column name="PAYMENT_TYPE" prior="payment_type" type="VARCHAR" length="100" jt="12" />
+			<index name="PK_DIM_PAYMENT_TYPE" unique="PRIMARY_KEY" >
+				<column name="PAYMENT_TYPE_ID" />
+			</index>
+		</table>
+		<table name="DIM_PRIMARY_TYPE" prior="dim_primary_type" >
+			<column name="PRIMARY_TYPE_ID" prior="primary_type_id" type="INT" jt="4" mandatory="y" />
+			<column name="PRIMARY_TYPE" prior="primary_type" type="VARCHAR" length="255" jt="12" />
+			<index name="PK_DIM_PRIMARY_TYPE" unique="PRIMARY_KEY" >
+				<column name="PRIMARY_TYPE_ID" />
+			</index>
+		</table>
+		<table name="DIM_RECIPIENT" prior="dim_recipient" >
+			<column name="RECIPIENT_ID" prior="recipient_id" type="INT" jt="4" mandatory="y" />
+			<column name="RECIPIENT_NPI" prior="recipient_npi" type="INT" jt="4" />
+			<column name="RECIPIENT_ADDRESS_LINE_1" prior="recipient_address_line_1" type="VARCHAR" length="100" jt="12" />
+			<column name="RECIPIENT_ADDRESS_LINE_2" prior="recipient_address_line_2" type="VARCHAR" length="100" jt="12" />
+			<column name="RECIPIENT_CITY" prior="recipient_city" type="VARCHAR" length="100" jt="12" />
+			<column name="RECIPIENT_STATE" prior="recipient_state" type="VARCHAR" length="100" jt="12" />
+			<column name="RECIPIENT_ZIP_CODE" prior="recipient_zip_code" type="INT" jt="4" />
+			<column name="RECIPIENT_COUNTRY" prior="recipient_country" type="VARCHAR" length="100" jt="12" />
+			<column name="RECIPIENT_PROVINCE" prior="recipient_province" type="VARCHAR" length="100" jt="12" />
+			<column name="RECIPIENT_POSTAL_CODE" prior="recipient_postal_code" type="INT" jt="4" />
+			<index name="PK_DIM_RECIPIENT" unique="PRIMARY_KEY" >
+				<column name="RECIPIENT_ID" />
+			</index>
+		</table>
+		<table name="DIM_SPECIALTY" prior="dim_specialty" >
+			<column name="SPECIALTY_ID" prior="specialty_id" type="INT" jt="4" mandatory="y" />
+			<column name="SPECIALTY" prior="specialty" type="VARCHAR" length="255" jt="12" />
+			<index name="PK_DIM_SPECIALTY" unique="PRIMARY_KEY" >
+				<column name="SPECIALTY_ID" />
+			</index>
+		</table>
+		<table name="FACTS_PAYMENTS" prior="facts_payments" >
+			<column name="FACT_ID" prior="fact_id" type="INT" jt="4" mandatory="y" />
+			<column name="PMT_AMOUNT" prior="pmt_amount" type="DECIMAL" length="2" jt="3" />
+			<column name="NUMBER_OF_PAYMENTS" prior="number_of_payments" type="INT" jt="4" />
+			<column name="POPULATION" prior="population" type="INT" jt="4" />
+			<column name="PAYMENT_TYPE_ID" prior="payment_type_id" type="INT" jt="4" />
+			<column name="PAYMENT_FORM_ID" prior="payment_form_id" type="INT" jt="4" />
+			<column name="PAYMENT_NATURE_ID" prior="payment_nature_id" type="INT" jt="4" />
+			<column name="DATE_ID" prior="date_id" type="INT" jt="4" />
+			<column name="COMPANY_ID" prior="company_id" type="INT" jt="4" />
+			<column name="RECIPIENT_ID" prior="recipient_id" type="INT" jt="4" />
+			<column name="SPECIALTY1_ID" prior="specialty1_id" type="INT" jt="4" />
+			<column name="SPECIALTY2_ID" prior="specialty2_id" type="INT" jt="4" />
+			<column name="SPECIALTY3_ID" prior="specialty3_id" type="INT" jt="4" />
+			<column name="SPECIALTY4_ID" prior="specialty4_id" type="INT" jt="4" />
+			<column name="SPECIALTY5_ID" prior="specialty5_id" type="INT" jt="4" />
+			<column name="PRIMARY_TYPE1_ID" prior="primary_type1_id" type="INT" jt="4" />
+			<column name="PRIMARY_TYPE2_ID" prior="primary_type2_id" type="INT" jt="4" />
+			<column name="PRIMARY_TYPE3_ID" prior="primary_type3_id" type="INT" jt="4" />
+			<column name="PRIMARY_TYPE4_ID" prior="primary_type4_id" type="INT" jt="4" />
+			<column name="PRIMARY_TYPE5_ID" prior="primary_type5_id" type="INT" jt="4" />
+			<column name="PRINCIPAL_INVESTIGATOR1_ID" prior="principal_investigator1_id" type="INT" jt="4" />
+			<column name="PRINCIPAL_INVESTIGATOR2_ID" prior="principal_investigator2_id" type="INT" jt="4" />
+			<column name="PRINCIPAL_INVESTIGATOR3_ID" prior="principal_investigator3_id" type="INT" jt="4" />
+			<column name="PRINCIPAL_INVESTIGATOR4_ID" prior="principal_investigator4_id" type="INT" jt="4" />
+			<column name="PRINCIPAL_INVESTIGATOR5_ID" prior="principal_investigator5_id" type="INT" jt="4" />
+			<index name="PK_PAYMENT_FACTS" unique="PRIMARY_KEY" >
+				<column name="FACT_ID" />
+			</index>
+			<fk name="FK_FACTS_PAYMENTS_DIM_PAYMENT_TYPE" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_PAYMENT_TYPE" >
+				<fk_column name="PAYMENT_TYPE_ID" pk="PAYMENT_TYPE_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_PAYMENT_FORM" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_PAYMENT_FORM" >
+				<fk_column name="PAYMENT_FORM_ID" pk="PAYMENT_FORM_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_PAYMENT_NATURE" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_PAYMENT_NATURE" >
+				<fk_column name="PAYMENT_NATURE_ID" pk="PAYMENT_NATURE_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_DATE" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_DATE" >
+				<fk_column name="DATE_ID" pk="DATE_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_COMPANY" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_COMPANY" >
+				<fk_column name="COMPANY_ID" pk="COMPANY_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_RECIPIENT" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_RECIPIENT" >
+				<fk_column name="RECIPIENT_ID" pk="RECIPIENT_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_SPECIALTY" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_SPECIALTY" >
+				<fk_column name="SPECIALTY1_ID" pk="SPECIALTY_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_SPECIALTY_0" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_SPECIALTY" >
+				<fk_column name="SPECIALTY2_ID" pk="SPECIALTY_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_SPECIALTY_1" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_SPECIALTY" >
+				<fk_column name="SPECIALTY3_ID" pk="SPECIALTY_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_SPECIALTY_2" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_SPECIALTY" >
+				<fk_column name="SPECIALTY4_ID" pk="SPECIALTY_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_SPECIALTY_3" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_SPECIALTY" >
+				<fk_column name="SPECIALTY5_ID" pk="SPECIALTY_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_PRIMARY_TYPE" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_PRIMARY_TYPE" >
+				<fk_column name="PRIMARY_TYPE1_ID" pk="PRIMARY_TYPE_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_PRIMARY_TYPE_0" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_PRIMARY_TYPE" >
+				<fk_column name="PRIMARY_TYPE2_ID" pk="PRIMARY_TYPE_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_PRIMARY_TYPE_1" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_PRIMARY_TYPE" >
+				<fk_column name="PRIMARY_TYPE3_ID" pk="PRIMARY_TYPE_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_PRIMARY_TYPE_2" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_PRIMARY_TYPE" >
+				<fk_column name="PRIMARY_TYPE4_ID" pk="PRIMARY_TYPE_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_PRIMARY_TYPE_3" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_PRIMARY_TYPE" >
+				<fk_column name="PRIMARY_TYPE5_ID" pk="PRIMARY_TYPE_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_RECIPIENT_0" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_RECIPIENT" >
+				<fk_column name="PRINCIPAL_INVESTIGATOR1_ID" pk="RECIPIENT_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_RECIPIENT_1" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_RECIPIENT" >
+				<fk_column name="PRINCIPAL_INVESTIGATOR2_ID" pk="RECIPIENT_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_RECIPIENT_2" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_RECIPIENT" >
+				<fk_column name="PRINCIPAL_INVESTIGATOR3_ID" pk="RECIPIENT_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_RECIPIENT_3" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_RECIPIENT" >
+				<fk_column name="PRINCIPAL_INVESTIGATOR4_ID" pk="RECIPIENT_ID" />
+			</fk>
+			<fk name="FK_FACTS_PAYMENTS_DIM_RECIPIENT_4" virtual="y" to_schema="doctors_payments_dw_snowflake.MEDICAL" to_table="DIM_RECIPIENT" >
+				<fk_column name="PRINCIPAL_INVESTIGATOR5_ID" pk="RECIPIENT_ID" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-d24" confirmed="y" show_relation="columns" >
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="DIM_COMPANY" color="C1D8EE" x="442" y="663" />
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="DIM_DATE" color="C1D8EE" x="102" y="476" />
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="DIM_PAYMENT_FORM" color="C1D8EE" x="85" y="255" />
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="DIM_PAYMENT_NATURE" color="C1D8EE" x="51" y="374" />
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="DIM_PAYMENT_TYPE" color="C1D8EE" x="85" y="136" />
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="DIM_PRIMARY_TYPE" color="C1D8EE" x="799" y="459" />
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="DIM_RECIPIENT" color="C1D8EE" x="714" y="51" />
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="DIM_SPECIALTY" color="C1D8EE" x="799" y="323" />
+		<entity schema="doctors_payments_dw_snowflake.MEDICAL" name="FACTS_PAYMENTS" color="C1D8EE" x="374" y="136" />
+	</layout>
+</project>
