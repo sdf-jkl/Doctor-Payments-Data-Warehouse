@@ -22,16 +22,21 @@ The Centers for Medicare and Medicaid Services wants to know the profession and 
 ## Business Impact
 
 ### Risks
+
 Data Privacy: When handling the personal data of healthcare providers, strict adherence to privacy laws and regulations is crucial.
+
 Data Accuracy and Integrity: Incorrect or incomplete data can result in inaccurate conclusions, affecting policy decisions and CMS's operations.
 
 ### Costs
+
 Data Infrastructure: Costs associated with data storage, processing, and analysis tools.
+
 Personnel: Data scientists, engineers, and analysts who maintain the datasets and analyze the data.
 
 ### Benefits
 
 Transparency and Accountability: Enhancing transparency in healthcare payments can help in reducing fraudulent practices and ensure fair compensation practices across states.
+
 Policy Making and Enforcement: Insights from the data can inform policy decisions related to healthcare funding and provider behaviors.
 
 
