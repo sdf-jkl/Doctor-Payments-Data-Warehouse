@@ -19,6 +19,7 @@ The Centers for Medicare and Medicaid Services wants to know the profession and 
 * Form of Payment
 * Nature Of Payment 
 
+
 ## Business Impact
 
 ### Risks
@@ -42,12 +43,30 @@ Policy Making and Enforcement: Insights from the data can inform policy decision
 
 ## Business Persona
 
+### Users of the System:
+
+Healthcare Policy Makers: Use the insights gathered to make/adjust healthcare policies.
+
+Healthcare Providers: Interested in understanding how their payments compare with others across different states or specialties.
+
+Public Health Officials: Use the data to ensure compliance with healthcare standards and fairness in provider payments.
+
+Researchers and Academics: Interested in studying healthcare economics and provider behaviors.
+
+### System Actors:
+
+Data Engineers: Structure and manage vast amounts of data into usable formats.
+
+Data Scientists and Analysts: Analyze the data to identify trends, correlations, and insights.
+
+
 ## Data
 
 The datasets used come from CMS Open Payments Data website. https://openpaymentsdata.cms.gov/
 
 There are two payment type datasets we used: generala and research payments.
 On average a general payment dataset was about 7Gb and research payment dataset 700Mb.
+
 
 ## Methods 
 
