@@ -14,17 +14,14 @@
 		</table>
 		<table name="dim_date" prior="Entity" >
 			<column name="date_id" type="INT" jt="4" mandatory="y" />
-			<column name="original_date" type="DATE" jt="91" />
 			<column name="iso_date" type="DATE" jt="91" />
 			<column name="year" type="INT" jt="4" />
 			<column name="quarter" type="INT" jt="4" />
 			<column name="month" type="INT" jt="4" />
-			<column name="week" type="INT" jt="4" />
 			<column name="day" type="INT" jt="4" />
 			<column name="month_name" type="VARCHAR" length="100" jt="12" />
 			<column name="day_name" type="VARCHAR" length="100" jt="12" />
 			<column name="week_of_the_year" type="INT" jt="4" />
-			<column name="day_of_the_year" type="INT" jt="4" />
 			<index name="pk_dim_date" unique="PRIMARY_KEY" >
 				<column name="date_id" />
 			</index>
@@ -83,7 +80,6 @@
 			<column name="fact_id" type="INT" jt="4" mandatory="y" />
 			<column name="pmt_amount" type="DECIMAL" length="2" jt="3" />
 			<column name="number_of_payments" type="INT" jt="4" />
-			<column name="population" type="INT" jt="4" />
 			<column name="payment_type_id" type="INT" jt="4" />
 			<column name="payment_form_id" type="INT" jt="4" />
 			<column name="payment_nature_id" type="INT" jt="4" />
@@ -95,11 +91,13 @@
 			<column name="specialty3_id" type="INT" jt="4" />
 			<column name="specialty4_id" type="INT" jt="4" />
 			<column name="specialty5_id" type="INT" jt="4" />
+			<column name="specialty6_id" type="INT" jt="4" />
 			<column name="primary_type1_id" prior="primary_type_id" type="INT" jt="4" />
 			<column name="primary_type2_id" type="INT" jt="4" />
 			<column name="primary_type3_id" type="INT" jt="4" />
 			<column name="primary_type4_id" type="INT" jt="4" />
 			<column name="primary_type5_id" type="INT" jt="4" />
+			<column name="primary_type6_id" type="INT" jt="4" />
 			<column name="principal_investigator1_id" type="INT" jt="4" />
 			<column name="principal_investigator2_id" type="INT" jt="4" />
 			<column name="principal_investigator3_id" type="INT" jt="4" />
