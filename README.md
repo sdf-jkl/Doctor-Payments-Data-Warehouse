@@ -7,11 +7,10 @@ The Centers for Medicare and Medicaid Services wants to know the profession and 
 **The requirements are:**
 * Total Doctors by State
 * Total Companies by State
-* Ratings by County and Zip Code For each Specialty.
-* Break down by General Payment, Ownership, by research 
-* Payment by State and for each, you should be able to breakdown by Genera Pay, Ownership and Research
-* During the year 2017-2022 (give me the populations for each state) 
-* Do an analysis and see if the number of payment made match with the total populations
+* Ratings by County and Zip Code For each Specialty
+* Break down by General and research 
+* Payment by State and for each, you should be able to breakdown by General and Research
+* During the year 2018-2022 
 * Do not identify the doctors 
 * Payment by Primary Type 
 * Payment by Specialty
@@ -70,13 +69,18 @@ On average a general payment dataset was about 7Gb and research payment dataset 
 
 ## Methods 
 
-We used ELT?
+The choice of ELT (Extract, Load, Transform) process is beneficial for several reasons:
+
+Extracting raw data first preserves its integrity, while loading it into a centralized repository like Snowflake ensures scalable storage and processing capabilities.
+Transforming data within the data warehouse simplifies the pipeline and maximizes the computational power of the warehouse for efficient transformations.
+ELT methodology enables scalable processing of large datasets by leveraging the scalable storage and computational capabilities of modern data warehouses, achieved through the initial loading of raw data into the warehouse.
+
 
 ## Data Tools
 
-**Data Storage:** Microsoft Azure
+**Data Storage:** Using Azure Container as a storage solution provides flexibility and scalability for storing large datasets securely.
 
-**Data Processing:** Snowflake and Dbt
+**Data Processing:** Loading the dataset from Azure Container to Snowflake data warehouse facilitates efficient processing and analysis, leveraging Snowflake's capabilities for data manipulation and transformation. Utilizing dbt (data build tool) streamlines the process of data transformation and generation of dimensional and fact tables, enhancing automation and repeatability in the data pipeline.
 
 ## Interface
 
