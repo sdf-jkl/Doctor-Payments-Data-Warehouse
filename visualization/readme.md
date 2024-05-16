@@ -27,22 +27,15 @@ Form of Payment
 Nature Of Payment 
 
         
+![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/b4f895d0-b2ba-48f3-996f-08811d6e345d)
+![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/b4f895d0-b2ba-48f3-996f-08811d6e345d)
 
 
 
-![1](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/0f228f3d-3b69-4ad7-9902-09faf90757bc)
+![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/f08783e5-0b26-4eeb-8558-545c1c6f9deb)
+![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/f08783e5-0b26-4eeb-8558-545c1c6f9deb)
 
 
- 
- 
-![2](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/f4d9b985-702a-458c-a30b-6e3d98d2809c)
-
-
-
-![3](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/be76e4cb-b39b-416d-bc16-7550f07b0c90)
-
-
-
-
-![4](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/f6f1ddbb-35b6-498f-8db4-fbb5b8549a51)
+![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/2707573c-6a42-480b-97f3-ff72733f8d1c)
+![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/2707573c-6a42-480b-97f3-ff72733f8d1c)
 
