@@ -1,7 +1,5 @@
 # Doctor-Payments-Data-Warehouse
 
-### Business Problem and Requirements:
-
 The Centers for Medicare and Medicaid Services wants to know the profession and the popularity of the all the doctors that are getting paid by State.
 
 The requirements are:
