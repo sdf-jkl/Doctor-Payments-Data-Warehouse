@@ -1,4 +1,4 @@
-# Doctor-Payments-Data-Warehouse
+# Doctor Payments Data Warehouse
 
 The Centers for Medicare and Medicaid Services wants to know the profession and the popularity of the all the doctors that are getting paid by State.
 
