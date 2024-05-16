@@ -47,9 +47,9 @@ Nature Of Payment
 
 
 
-![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/7e2b0136-b41e-47cc-98af-dab3d03f8434)
+![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/bf0202a4-1314-4ef0-9171-f466eb2a4e8d)
+![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/1eaaedce-22de-4e77-8a5b-694996b38f19)
 
-![image](https://github.com/sdf-jkl/Doctor-Payments-Data-Warehouse/assets/168314850/f8ebc516-ca45-4314-b488-810af82c0ce8)
 
 
 
